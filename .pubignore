@@ -1,0 +1,16 @@
+example/android
+example/ios
+example/linux
+example/macos
+example/web
+example/windows
+*.iml
+.gradle
+/local.properties
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/build
+/captures
+.externalNativeBuild
+.idea

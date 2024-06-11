@@ -1,0 +1,23 @@
+name: super_context_menu_example
+description: A new Flutter project.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+#  super_context_menu: ^0.8.15
+  super_context_menu:
+    path: ../
+#  super_drag_and_drop: ^0.8.15
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
