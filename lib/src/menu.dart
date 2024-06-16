@@ -107,6 +107,7 @@ class ContextMenuWidget extends StatelessWidget {
             menuWidgetBuilder: mobileMenuWidgetBuilder,
             emojiList: emojiList,
             emojiClick: emojiClick,
+            chatReaction: chatReaction,
             child: child!,
           );
 
