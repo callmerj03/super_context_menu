@@ -260,7 +260,15 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
     }
 
     Widget emojiViewAddIcon(raw.MobileMenuDelegate delegate) {
-      return widget.chatReaction == null
+      bool reactionisPartOfMap = false;
+
+      widget.emojiList.forEach((element) {
+        if (widget.chatReaction == element['emoji']) {
+          reactionisPartOfMap = true;
+        }
+      });
+
+      return widget.chatReaction == null || widget.chatReaction == "" || reactionisPartOfMap
           ? GestureDetector(
               onTap: () {
                 _insertOverlay(context, delegate);
