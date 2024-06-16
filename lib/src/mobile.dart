@@ -30,6 +30,7 @@ class MobileContextMenuWidget extends StatefulWidget {
     required this.hitTestBehavior,
     required this.menuProvider,
     this.iconTheme,
+    this.chatReaction,
     this.destructiveIconTheme,
     required this.contextMenuIsAllowed,
     required this.menuWidgetBuilder,
@@ -41,6 +42,7 @@ class MobileContextMenuWidget extends StatefulWidget {
   final Widget Function(BuildContext context, Widget child)? previewBuilder;
   final DeferredMenuPreview Function(BuildContext context, Widget child, CancellationToken cancellationToken)? deferredPreviewBuilder;
 
+  final String? chatReaction;
   final HitTestBehavior hitTestBehavior;
   final MenuProvider menuProvider;
   final ContextMenuIsAllowed contextMenuIsAllowed;
@@ -240,10 +242,16 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
       return Container(
         height: 48,
         width: 48,
-        margin: EdgeInsets.only(left: 8),
+        decoration: widget.chatReaction == emoji
+            ? BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white.withOpacity(0.5),
+              )
+            : null,
+        margin: EdgeInsets.only(top: 6, bottom: 6),
         child: Center(
             child: DefaultTextStyle(
-          style: TextStyle(fontSize: 30),
+          style: TextStyle(fontSize: 22),
           child: Text(
             emoji,
           ),
@@ -251,18 +259,34 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
       );
     }
 
-    Widget emojiViewAddIcon() {
-      return Container(
-        height: 48,
-        width: 48,
-        margin: EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          // color: Colors.black,
-          color: Colors.white.withOpacity(0.5),
-        ),
-        child: Center(child: Icon(Icons.add)),
-      );
+    Widget emojiViewAddIcon(raw.MobileMenuDelegate delegate) {
+      return widget.chatReaction == null
+          ? GestureDetector(
+              onTap: () {
+                _insertOverlay(context, delegate);
+              },
+              child: Container(
+                height: 48,
+                width: 48,
+                margin: EdgeInsets.only(top: 6, bottom: 6),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  // color: Colors.black,
+                  color: Colors.white.withOpacity(0.5),
+                ),
+                child: Center(
+                    child: Icon(
+                  Icons.add,
+                  size: 22,
+                )),
+              ),
+            )
+          : GestureDetector(
+              onTap: () {
+                delegate.hideMenu(itemSelected: false);
+                widget.emojiClick(null);
+              },
+              child: emojiView(widget.chatReaction!));
     }
 
     Size? deferredSize = widget.deferredPreviewBuilder != null ? _getDeferredPreview(onHideMenu, request.previewImageSetter) : null;
@@ -301,17 +325,15 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
                           .map((map) => map['emoji'] != null
                               ? GestureDetector(
                                   onTap: () {
-                                    widget.emojiClick(map['emoji']);
+                                    if (map['emoji'] == widget.chatReaction) {
+                                      widget.emojiClick(null);
+                                    } else {
+                                      widget.emojiClick(map['emoji']);
+                                    }
                                     delegate.hideMenu(itemSelected: false);
                                   },
                                   child: emojiView(map['emoji']))
-                              : GestureDetector(
-                                  onTap: () {
-                                    _insertOverlay(context, delegate);
-
-                                    // delegate.hideMenu(itemSelected: false);
-                                  },
-                                  child: emojiViewAddIcon()))
+                              : emojiViewAddIcon(delegate))
                           .toList()),
                   decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(100)), color: Theme.of(context).primaryColor),
                   height: 48,

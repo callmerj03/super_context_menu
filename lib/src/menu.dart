@@ -63,7 +63,7 @@ class ContextMenuWidget extends StatelessWidget {
     MobileMenuWidgetBuilder? mobileMenuWidgetBuilder,
     DesktopMenuWidgetBuilder? desktopMenuWidgetBuilder,
     required this.emojiList,
-    required this.emojiClick,
+    required this.emojiClick, this.chatReaction,
   })  : assert(previewBuilder == null || deferredPreviewBuilder == null, 'Cannot use both previewBuilder and deferredPreviewBuilder'),
         mobileMenuWidgetBuilder = mobileMenuWidgetBuilder ?? DefaultMobileMenuWidgetBuilder.instance,
         desktopMenuWidgetBuilder = desktopMenuWidgetBuilder ?? DefaultDesktopMenuWidgetBuilder();
@@ -74,6 +74,7 @@ class ContextMenuWidget extends StatelessWidget {
 
   final HitTestBehavior hitTestBehavior;
   final MenuProvider menuProvider;
+  final String? chatReaction;
   final ContextMenuIsAllowed contextMenuIsAllowed;
   final Widget child;
   final Function(String?) emojiClick;
