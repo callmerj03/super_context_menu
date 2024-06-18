@@ -256,7 +256,7 @@ class DefaultMobileMenuWidgetBuilder extends MobileMenuWidgetBuilder {
     Widget child,
   ) {
     final theme = _getTheme(context);
-    return menuInfo.menu.children.length > 0
+    return menuInfo.menu.children.length == 0
         ? child
         : Container(
             decoration: theme.menuDecorationInside,
