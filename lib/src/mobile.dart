@@ -347,6 +347,8 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
                   height: 48,
                   margin: EdgeInsets.only(bottom: 16),
                 ),
+
+            if(rootMenu.children.length >0)
             MenuStack(
               rootMenu: rootMenu,
               builder: widget.menuWidgetBuilder,
