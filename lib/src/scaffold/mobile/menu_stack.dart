@@ -152,8 +152,6 @@ class MenuStackState extends State<MenuStack> implements MenuWidgetDelegate {
     ];
     return MenuLayout(
       children: [
-
-
         ...records.map((record) {
           final info = _menuInfoForRecord(record);
           return AnimatedMenuLayoutData(
