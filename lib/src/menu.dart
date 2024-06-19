@@ -74,7 +74,7 @@ class ContextMenuWidget extends StatelessWidget {
 
   final HitTestBehavior hitTestBehavior;
   final MenuProvider menuProvider;
-  final String? chatReaction;
+  final dynamic? chatReaction;
   final ContextMenuIsAllowed contextMenuIsAllowed;
   final Widget child;
   final Function(String?) emojiClick;
