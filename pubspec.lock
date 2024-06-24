@@ -133,10 +133,10 @@ packages:
     dependency: transitive
     description:
       name: irondash_engine_context
-      sha256: e8398cca5e28dc280c87b8c35a6ff4e15be844eabec51e713631f83903563681
+      sha256: cd7b769db11a2b5243b037c8a9b1ecaef02e1ae27a2d909ffa78c1dad747bb10
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.3"
+    version: "0.5.4"
   irondash_message_channel:
     dependency: transitive
     description:
@@ -361,10 +361,11 @@ packages:
   super_native_extensions:
     dependency: "direct main"
     description:
-      name: super_native_extensions
-      sha256: bb6499c83484c1dbe293e68907a9b6d51e30b699502c5e11940e834c310df261
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: master
+      resolved-ref: f59740dc515c0150b5336b6cfe751d8b47648141
+      url: "https://github.com/callmerj03/super_native_extensions.git"
+    source: git
     version: "0.8.15"
   term_glyph:
     dependency: transitive

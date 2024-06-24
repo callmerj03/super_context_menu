@@ -63,7 +63,7 @@ class ContextMenuWidget extends StatelessWidget {
     MobileMenuWidgetBuilder? mobileMenuWidgetBuilder,
     DesktopMenuWidgetBuilder? desktopMenuWidgetBuilder,
     required this.emojiList,
-    required this.emojiClick, this.chatReaction,
+    required this.emojiClick, this.chatReaction,required this.backmanage,
   })  : assert(previewBuilder == null || deferredPreviewBuilder == null, 'Cannot use both previewBuilder and deferredPreviewBuilder'),
         mobileMenuWidgetBuilder = mobileMenuWidgetBuilder ?? DefaultMobileMenuWidgetBuilder.instance,
         desktopMenuWidgetBuilder = desktopMenuWidgetBuilder ?? DefaultDesktopMenuWidgetBuilder();
@@ -74,10 +74,11 @@ class ContextMenuWidget extends StatelessWidget {
 
   final HitTestBehavior hitTestBehavior;
   final MenuProvider menuProvider;
-  final dynamic? chatReaction;
+  final dynamic chatReaction;
   final ContextMenuIsAllowed contextMenuIsAllowed;
   final Widget child;
   final Function(String?) emojiClick;
+  final Function(bool) backmanage;
   final MobileMenuWidgetBuilder mobileMenuWidgetBuilder;
   final DesktopMenuWidgetBuilder desktopMenuWidgetBuilder;
   final List<Map> emojiList;
@@ -86,7 +87,6 @@ class ContextMenuWidget extends StatelessWidget {
   /// on platform.
   final IconThemeData? iconTheme;
 
-  // raw.MobileMenuDelegate? delegateGlobbal;
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +108,7 @@ class ContextMenuWidget extends StatelessWidget {
             emojiList: emojiList,
             emojiClick: emojiClick,
             chatReaction: chatReaction,
+            backmanage: backmanage,
             child: child!,
           );
 

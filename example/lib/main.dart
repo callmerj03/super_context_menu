@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:super_context_menu/super_context_menu.dart';
 
 void main() async {
-  runApp(const MainApp());
+  runApp(MainApp());
 }
+
+bool isReturnAllowed = false;
 
 class Item extends StatelessWidget {
   const Item({
@@ -69,119 +71,62 @@ class Section extends StatelessWidget {
   }
 }
 
-class _BaseContextMenu extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ContextMenuWidget(
-      child: Item(
-        child: Text('Base Context Menu' 'Base Context Menu' 'Base'),
-      ),
-      menuProvider: (_) {
-        return Menu(
-          children: [
-            MenuAction(
-              title: 'Menu Item 1',
-              callback: () {},
-            ),
-            // MenuAction(title: 'Menu Item 2', callback: () {}),
-            // MenuAction(title: 'Menu Item 3', callback: () {}),
-            // MenuSeparator(),
-            // Menu(title: 'Submenu', children: [
-            //   MenuAction(title: 'Submenu Item 1', callback: () {}),
-            //   MenuAction(title: 'Submenu Item 2', callback: () {}),
-            //   Menu(title: 'Nested Submenu', children: [
-            //     MenuAction(title: 'Submenu Item 1', callback: () {}),
-            //     MenuAction(title: 'Submenu Item 2', callback: () {}),
-            //   ]),
-            // ]),
-          ],
-        );
-      },
-      emojiList: [
-        {'emoji': '👍'},
-        {'emoji': '👍'},
-        {'emoji': '👍'},
-        {'emoji': '👍'},
-        {'emoji': null},
-      ],
-      emojiClick: (String) {},
-    );
-  }
-}
-
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  MainApp({super.key});
+
+  void backmanage(bool value) {
+    isReturnAllowed = value;
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: SafeArea(child: ListView.builder(
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              margin: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-              child: Align(alignment: index.isEven ? Alignment.centerLeft : Alignment.bottomRight, child: _BaseContextMenu()),
-            );
-          },
-          // child: Column(
-          //   crossAxisAlignment: CrossAxisAlignment.stretch,
-          //   children: <Widget>[
-          //     Section(
-          //       description:
-          //       const Text('Base context menu, without drag & drop.'),
-          //       child: _BaseContextMenu(),
-          //     ),
-          //     Section(
-          //       description:
-          //       const Text('Base context menu,z with drag & drop.'),
-          //       child: _BaseContextMenuWithDrag(),
-          //     ),
-          //     Section(
-          //       description: const Text(
-          //           'Complex context menu, with custom lift, preview and drag builders (mobile only).'),
-          //       child: _ComplexContextMenu(),
-          //     ),
-          //     Section(
-          //       description:
-          //       const Text('Deferred menu preview (mobile only).'),
-          //       child: _DeferredMenuPreview(),
-          //     ),
-          //   ].intersperse(const _Separator()).toList(growable: false),
-          // ),
-        )
+      home: WillPopScope(
+        onWillPop: () async {
+          print(">>>>|||| ${isReturnAllowed}");
+          return false;
+        },
+        child: Scaffold(
+          body: SafeArea(child: ListView.builder(
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                margin: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                child: Align(
+                    alignment: index.isEven ? Alignment.centerLeft : Alignment.bottomRight,
+                    child: ContextMenuWidget(
+                      child: Item(
+                        child: Text('Base Context Menu' 'Base Context Menu' 'Base'),
+                      ),
+                      menuProvider: (_) {
+                        isReturnAllowed = false;
+                        print("poisaaaa${isReturnAllowed}");
 
-            // _PageLayout(
-            //   itemZone:
-            //   SingleChildScrollView(
-            //     child: Column(
-            //       crossAxisAlignment: CrossAxisAlignment.stretch,
-            //       children: <Widget>[
-            //         Section(
-            //           description:
-            //           const Text('Base context menu, without drag & drop.'),
-            //           child: _BaseContextMenu(),
-            //         ),
-            //         Section(
-            //           description:
-            //           const Text('Base context menu, with drag & drop.'),
-            //           child: _BaseContextMenuWithDrag(),
-            //         ),
-            //         Section(
-            //           description: const Text(
-            //               'Complex context menu, with custom lift, preview and drag builders (mobile only).'),
-            //           child: _ComplexContextMenu(),
-            //         ),
-            //         Section(
-            //           description:
-            //           const Text('Deferred menu preview (mobile only).'),
-            //           child: _DeferredMenuPreview(),
-            //         ),
-            //       ].intersperse(const _Separator()).toList(growable: false),
-            //     ),
-            //   ),
-            //   dropZone:  _DropZone(),
-            // ),
-            ),
+                        return Menu(
+                          children: [
+                            MenuAction(
+                              title: 'Menu Item 1',
+                              callback: () {},
+                            ),
+                          ],
+                        );
+                      },
+                      emojiList: [
+                        {'emoji': '👍'},
+                        {'emoji': '👍'},
+                        {'emoji': '👍'},
+                        {'emoji': '👍'},
+                        {'emoji': null},
+                      ],
+                      emojiClick: (String) {},
+                      backmanage: (value) {
+                        isReturnAllowed = value;
+                        print("paissssaaa>>>> ${isReturnAllowed}");
+                      },
+                    )),
+              );
+            },
+          )),
+        ),
       ),
     );
   }

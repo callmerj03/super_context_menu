@@ -21,7 +21,7 @@ final _keyLift = _SnapshotKey('Lift');
 final _keyPreview = _SnapshotKey('Preview');
 
 class MobileContextMenuWidget extends StatefulWidget {
-  const MobileContextMenuWidget({
+  MobileContextMenuWidget({
     super.key,
     this.liftBuilder,
     this.previewBuilder,
@@ -36,6 +36,7 @@ class MobileContextMenuWidget extends StatefulWidget {
     required this.menuWidgetBuilder,
     required this.emojiList,
     required this.emojiClick,
+    required this.backmanage,
   }) : assert(previewBuilder == null || deferredPreviewBuilder == null, 'Cannot use both previewBuilder and deferredPreviewBuilder');
 
   final Widget Function(BuildContext context, Widget child)? liftBuilder;
@@ -47,6 +48,7 @@ class MobileContextMenuWidget extends StatefulWidget {
   final MenuProvider menuProvider;
   final ContextMenuIsAllowed contextMenuIsAllowed;
   final Widget child;
+  final Function(bool) backmanage;
   final MobileMenuWidgetBuilder menuWidgetBuilder;
 
   final List<Map> emojiList;
@@ -101,6 +103,8 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
                   scrollController: _scrollController,
                   onEmojiSelected: (emoji.Category? category, Emoji emoji) {
                     widget.emojiClick(emoji.emoji);
+                    print("1111111114444444");
+                    widget.backmanage(true);
                     delegate.hideMenu(itemSelected: false);
                     closeOverlay();
                   },
@@ -291,6 +295,8 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
             )
           : GestureDetector(
               onTap: () {
+                print("111111111333333");
+                widget.backmanage(true);
                 delegate.hideMenu(itemSelected: false);
                 widget.emojiClick(null);
               },
@@ -338,6 +344,9 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
                                     } else {
                                       widget.emojiClick(map['emoji']);
                                     }
+                                    print("11111111122222");
+
+                                    widget.backmanage(true);
                                     delegate.hideMenu(itemSelected: false);
                                   },
                                   child: emojiView(map['emoji']))
@@ -347,8 +356,6 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
                   height: 48,
                   margin: EdgeInsets.only(bottom: 16),
                 ),
-
-
             MenuStack(
               rootMenu: rootMenu,
               builder: widget.menuWidgetBuilder,
@@ -361,6 +368,7 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
         );
       },
       iconTheme: serializationOptions.iconTheme,
+      backmanage: widget.backmanage,
     );
   }
 

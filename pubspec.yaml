@@ -10,7 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  super_native_extensions: ^0.8.15
+  super_native_extensions:
+    git:
+      url: https://github.com/callmerj03/super_native_extensions.git
+      ref: master
+#  super_native_extensions: ^0.8.15
   collection: ^1.16.0
   device_info_plus: ^10.0.1
   pixel_snap: ^0.1.1
