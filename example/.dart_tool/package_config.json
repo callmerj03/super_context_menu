@@ -74,6 +74,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "fixnum",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/fixnum-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///Users/rohanjinwala/fvm/versions/3.19.6/packages/flutter",
       "packageUri": "lib/",
@@ -99,7 +105,7 @@
     },
     {
       "name": "irondash_engine_context",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/irondash_engine_context-0.5.3",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/irondash_engine_context-0.5.4",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -171,9 +177,9 @@
     },
     {
       "name": "path_provider_windows",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/path_provider_windows-2.2.1",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.2"
     },
     {
       "name": "pixel_snap",
@@ -183,7 +189,7 @@
     },
     {
       "name": "platform",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/platform-3.1.5",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/platform-3.1.6",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -279,7 +285,7 @@
     },
     {
       "name": "super_native_extensions",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/super_native_extensions-0.8.15",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/git/super_native_extensions-f59740dc515c0150b5336b6cfe751d8b47648141/",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -303,9 +309,9 @@
     },
     {
       "name": "uuid",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/uuid-4.1.0",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/uuid-4.4.0",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "3.0"
     },
     {
       "name": "vector_math",
@@ -339,9 +345,9 @@
     },
     {
       "name": "xdg_directories",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/xdg_directories-1.0.4",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/xdg_directories-1.1.0",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.3"
     },
     {
       "name": "super_context_menu_example",
@@ -350,7 +356,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-06-11T10:56:43.297117Z",
+  "generated": "2024-11-07T07:33:38.910171Z",
   "generator": "pub",
   "generatorVersion": "3.3.4"
 }

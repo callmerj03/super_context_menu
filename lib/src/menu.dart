@@ -63,7 +63,10 @@ class ContextMenuWidget extends StatelessWidget {
     MobileMenuWidgetBuilder? mobileMenuWidgetBuilder,
     DesktopMenuWidgetBuilder? desktopMenuWidgetBuilder,
     required this.emojiList,
-    required this.emojiClick, this.chatReaction,required this.backmanage,
+    required this.emojiClick,
+    this.chatReaction,
+    required this.backmanage,
+    required this.isDarkMode,
   })  : assert(previewBuilder == null || deferredPreviewBuilder == null, 'Cannot use both previewBuilder and deferredPreviewBuilder'),
         mobileMenuWidgetBuilder = mobileMenuWidgetBuilder ?? DefaultMobileMenuWidgetBuilder.instance,
         desktopMenuWidgetBuilder = desktopMenuWidgetBuilder ?? DefaultDesktopMenuWidgetBuilder();
@@ -82,11 +85,11 @@ class ContextMenuWidget extends StatelessWidget {
   final MobileMenuWidgetBuilder mobileMenuWidgetBuilder;
   final DesktopMenuWidgetBuilder desktopMenuWidgetBuilder;
   final List<Map> emojiList;
+  final bool isDarkMode;
 
   /// Base icon theme for menu icons. The size will be overridden depending
   /// on platform.
   final IconThemeData? iconTheme;
-
 
   @override
   Widget build(BuildContext context) {
@@ -109,9 +112,9 @@ class ContextMenuWidget extends StatelessWidget {
             emojiClick: emojiClick,
             chatReaction: chatReaction,
             backmanage: backmanage,
+            isDarkMode: isDarkMode,
             child: child!,
           );
-
         } else {
           return DesktopContextMenuWidget(
             hitTestBehavior: hitTestBehavior,

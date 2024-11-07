@@ -1,20 +1,17 @@
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart' as emoji;
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+import 'package:flutter/foundation.dart' as foundation;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:super_native_extensions/raw_menu.dart' as raw;
-import 'package:flutter/foundation.dart' as foundation;
 import 'package:super_native_extensions/widget_snapshot.dart';
 
 import '../super_context_menu.dart';
-import 'menu.dart';
 import 'menu_internal.dart';
-import 'menu_model.dart';
-import 'scaffold/mobile/menu_widget_builder.dart';
 import 'scaffold/mobile/menu_preview_widget.dart';
 import 'scaffold/mobile/menu_stack.dart';
+import 'scaffold/mobile/menu_widget_builder.dart';
 import 'util.dart';
 
 final _keyLift = _SnapshotKey('Lift');
@@ -37,6 +34,7 @@ class MobileContextMenuWidget extends StatefulWidget {
     required this.emojiList,
     required this.emojiClick,
     required this.backmanage,
+    required this.isDarkMode,
   }) : assert(previewBuilder == null || deferredPreviewBuilder == null, 'Cannot use both previewBuilder and deferredPreviewBuilder');
 
   final Widget Function(BuildContext context, Widget child)? liftBuilder;
@@ -50,6 +48,7 @@ class MobileContextMenuWidget extends StatefulWidget {
   final Widget child;
   final Function(bool) backmanage;
   final MobileMenuWidgetBuilder menuWidgetBuilder;
+  final bool isDarkMode;
 
   final List<Map> emojiList;
   final Function(String?) emojiClick;
@@ -96,14 +95,13 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
             bottom: 0,
             width: size.width,
             child: Material(
-              color: Colors.black,
+              // color: widget.isDarkMode == true ? Colors.black : Colors.white,
               child: Container(
                 padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: EmojiPicker(
                   scrollController: _scrollController,
                   onEmojiSelected: (emoji.Category? category, Emoji emoji) {
                     widget.emojiClick(emoji.emoji);
-                    print("1111111114444444");
                     widget.backmanage(true);
                     delegate.hideMenu(itemSelected: false);
                     closeOverlay();
@@ -113,30 +111,40 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
                     checkPlatformCompatibility: true,
                     emojiViewConfig: EmojiViewConfig(
                         emojiSizeMax: 28 * (foundation.defaultTargetPlatform == TargetPlatform.iOS ? 1.2 : 1.0),
-                        backgroundColor: Colors.black,
+                        // backgroundColor: widget.isDarkMode == true ? Colors.black : Colors.white,
                         columns: 8,
                         noRecents: Text(
                           'No Recents',
-                          style: TextStyle(fontSize: 20, color: Colors.white60),
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: widget.isDarkMode == true ? Colors.white60 : Colors.black,
+                          ),
                           textAlign: TextAlign.center,
                         )),
                     swapCategoryAndBottomBar: true,
-                    skinToneConfig: SkinToneConfig(indicatorColor: Colors.transparent, dialogBackgroundColor: Colors.black, enabled: true),
+                    skinToneConfig: SkinToneConfig(
+                        indicatorColor: Colors.transparent,
+                        dialogBackgroundColor: widget.isDarkMode == true ? Colors.black : Colors.white,
+                        enabled: true),
                     categoryViewConfig: CategoryViewConfig(
-                      backgroundColor: Colors.black,
+                      backgroundColor: widget.isDarkMode == true ? Colors.black : Colors.white,
                     ),
-                    bottomActionBarConfig: const BottomActionBarConfig(
-                        backgroundColor: Colors.black,
-                        showBackspaceButton: false,
-                        buttonColor: Colors.transparent,
-                        buttonIconColor: Colors.white),
+                    bottomActionBarConfig: BottomActionBarConfig(
+                      backgroundColor: widget.isDarkMode == true ? Colors.black : Colors.white,
+                      showBackspaceButton: false,
+                      buttonColor: Colors.transparent,
+                      buttonIconColor: widget.isDarkMode == true ? Colors.white : Colors.black,
+                    ),
                     searchViewConfig: SearchViewConfig(
-                        backgroundColor: Colors.black,
-                        buttonColor: Colors.white,
-                        buttonIconColor: Colors.white,
-                        hintText: "Search emoji",
-                        hintStyle: TextStyle(color: Colors.white),
-                        emojiListBgColor: Colors.black),
+                      backgroundColor: widget.isDarkMode == true ? Colors.black : Colors.white,
+                      buttonColor: widget.isDarkMode == true ? Colors.white : Colors.black,
+                      buttonIconColor: widget.isDarkMode == true ? Colors.white : Colors.black,
+                      hintText: "Search emoji",
+                      hintStyle: TextStyle(
+                        color: widget.isDarkMode == true ? Colors.white : Colors.black,
+                      ),
+                      emojiListBgColor: widget.isDarkMode == true ? Colors.black : Colors.white,
+                    ),
                   ),
                 ),
               ),
