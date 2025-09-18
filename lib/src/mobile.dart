@@ -41,7 +41,7 @@ class MobileContextMenuWidget extends StatefulWidget {
   final Widget Function(BuildContext context, Widget child)? previewBuilder;
   final DeferredMenuPreview Function(BuildContext context, Widget child, CancellationToken cancellationToken)? deferredPreviewBuilder;
 
-  final dynamic? chatReaction;
+  final dynamic chatReaction;
   final HitTestBehavior hitTestBehavior;
   final MenuProvider menuProvider;
   final ContextMenuIsAllowed contextMenuIsAllowed;

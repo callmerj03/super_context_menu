@@ -245,7 +245,7 @@ class DesktopContextMenuWidget extends StatelessWidget {
                 position: globalPosition,
               );
               return completer.future;
-            });
+            },);
         final res = await menuContext.showContextMenu(request);
         onHideMenu.value = res;
       } else {
