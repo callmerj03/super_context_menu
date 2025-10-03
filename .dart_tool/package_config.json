@@ -51,9 +51,9 @@
     },
     {
       "name": "emoji_picker_flutter",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/git/emoji_picker_flutter-6acca8f2b41f66ed0aa7a1f3b5c730ff6b447dbf/",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/emoji_picker_flutter-4.3.0",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.4"
     },
     {
       "name": "fake_async",
@@ -279,9 +279,9 @@
     },
     {
       "name": "super_native_extensions",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/git/super_native_extensions-18ffe9d00aa9c4a9019811088b7cf307a79e2cd4/",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/super_native_extensions-0.9.1",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.3"
     },
     {
       "name": "term_glyph",
@@ -300,6 +300,12 @@
       "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/typed_data-1.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.5"
+    },
+    {
+      "name": "universal_io",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/universal_io-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "uuid",
@@ -350,7 +356,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2025-09-18T17:56:16.566967Z",
+  "generated": "2025-10-02T16:16:15.466139Z",
   "generator": "pub",
   "generatorVersion": "3.6.1",
   "flutterRoot": "file:///Users/rohanjinwala/fvm/versions/3.27.2",

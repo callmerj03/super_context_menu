@@ -51,9 +51,9 @@
     },
     {
       "name": "emoji_picker_flutter",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/git/emoji_picker_flutter-6acca8f2b41f66ed0aa7a1f3b5c730ff6b447dbf/",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/emoji_picker_flutter-4.3.0",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.4"
     },
     {
       "name": "fake_async",
@@ -195,51 +195,51 @@
     },
     {
       "name": "plugin_platform_interface",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.6",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.8",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.0"
     },
     {
       "name": "shared_preferences",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences-2.2.3",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences-2.5.3",
       "packageUri": "lib/",
-      "languageVersion": "3.1"
+      "languageVersion": "3.5"
     },
     {
       "name": "shared_preferences_android",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_android-2.2.4",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.11",
+      "packageUri": "lib/",
+      "languageVersion": "3.6"
+    },
+    {
+      "name": "shared_preferences_foundation",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.5.4",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
     {
-      "name": "shared_preferences_foundation",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_foundation-2.4.0",
+      "name": "shared_preferences_linux",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_linux-2.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "shared_preferences_platform_interface",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_platform_interface-2.4.1",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
     {
-      "name": "shared_preferences_linux",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_linux-2.3.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.19"
-    },
-    {
-      "name": "shared_preferences_platform_interface",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_platform_interface-2.3.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.19"
-    },
-    {
       "name": "shared_preferences_web",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_web-2.2.1",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_web-2.4.3",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.4"
     },
     {
       "name": "shared_preferences_windows",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_windows-2.3.2",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/shared_preferences_windows-2.4.1",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.3"
     },
     {
       "name": "sky_engine",
@@ -285,9 +285,9 @@
     },
     {
       "name": "super_native_extensions",
-      "rootUri": "file:///Users/rohanjinwala/.pub-cache/git/super_native_extensions-18ffe9d00aa9c4a9019811088b7cf307a79e2cd4/",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/super_native_extensions-0.9.1",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.3"
     },
     {
       "name": "term_glyph",
@@ -306,6 +306,12 @@
       "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/typed_data-1.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.5"
+    },
+    {
+      "name": "universal_io",
+      "rootUri": "file:///Users/rohanjinwala/.pub-cache/hosted/pub.dev/universal_io-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "uuid",
@@ -356,7 +362,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2025-09-18T17:56:16.657490Z",
+  "generated": "2025-10-02T16:16:15.591125Z",
   "generator": "pub",
   "generatorVersion": "3.6.1",
   "flutterRoot": "file:///Users/rohanjinwala/fvm/versions/3.27.2",

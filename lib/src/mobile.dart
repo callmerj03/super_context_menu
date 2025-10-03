@@ -121,7 +121,7 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
                           ),
                           textAlign: TextAlign.center,
                         )),
-                    swapCategoryAndBottomBar: true,
+                    // swapCategoryAndBottomBar: true,
                     skinToneConfig: SkinToneConfig(
                         indicatorColor: Colors.transparent,
                         dialogBackgroundColor: widget.isDarkMode == true ? Colors.black : Colors.white,
@@ -137,13 +137,13 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
                     ),
                     searchViewConfig: SearchViewConfig(
                       backgroundColor: widget.isDarkMode == true ? Colors.black : Colors.white,
-                      buttonColor: widget.isDarkMode == true ? Colors.white : Colors.black,
+                      // buttonColor: widget.isDarkMode == true ? Colors.white : Colors.black,
                       buttonIconColor: widget.isDarkMode == true ? Colors.white : Colors.black,
                       hintText: "Search emoji",
-                      hintStyle: TextStyle(
-                        color: widget.isDarkMode == true ? Colors.white : Colors.black,
-                      ),
-                      emojiListBgColor: widget.isDarkMode == true ? Colors.black : Colors.white,
+                      // hintStyle: TextStyle(
+                      //   color: widget.isDarkMode == true ? Colors.white : Colors.black,
+                      // ),
+                      // emojiListBgColor: widget.isDarkMode == true ? Colors.black : Colors.white,
                     ),
                   ),
                 ),
@@ -283,12 +283,13 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
       return widget.chatReaction == null || widget.chatReaction == "" || reactionisPartOfMap
           ? GestureDetector(
               onTap: () {
+                print("challll>>");
                 _insertOverlay(context, delegate);
               },
               child: Container(
                 height: 48,
                 width: 48,
-                margin: EdgeInsets.only(top: 6, bottom: 6),
+                margin: const EdgeInsets.only(top: 6, bottom: 6),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   // color: Colors.black,
@@ -376,7 +377,7 @@ class _ContextMenuWidgetState extends State<MobileContextMenuWidget> {
         );
       },
       iconTheme: serializationOptions.iconTheme,
-      backmanage: widget.backmanage,
+      // backmanage: widget.backmanage,
     );
   }
 

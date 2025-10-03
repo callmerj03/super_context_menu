@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:super_context_menu/super_context_menu.dart';
+import 'package:super_context_menu/super_drag_and_drop/src/drag_configuration.dart';
+import 'package:super_context_menu/super_drag_and_drop/src/draggable_widget.dart';
+import 'package:super_context_menu/super_drag_and_drop/src/model.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(MainApp());
 }
 
@@ -86,43 +92,55 @@ class MainApp extends StatelessWidget {
           print(">>>>|||| ${isReturnAllowed}");
           return false;
         },
+
         child: Scaffold(
           body: SafeArea(child: ListView.builder(
             itemBuilder: (BuildContext context, int index) {
               return Container(
-                margin: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                margin: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 child: Align(
                     alignment: index.isEven ? Alignment.centerLeft : Alignment.bottomRight,
-                    child: ContextMenuWidget(
-                      child: Item(
-                        child: Text('Base Context Menu' 'Base Context Menu' 'Base'),
-                      ),
-                      menuProvider: (_) {
-                        isReturnAllowed = false;
-                        print("poisaaaa${isReturnAllowed}");
+                    child: DragItemWidget(
+                      allowedOperations: () => [DropOperation.copy],
+                      dragItemProvider: (_) => DragItem(localData: 'LocalDragData'),
+                      child: DraggableWidget(
+                        child: ContextMenuWidget(
+                          menuProvider: (_) {
+                            isReturnAllowed = false;
 
-                        return Menu(
-                          children: [
-                            MenuAction(
-                              title: 'Menu Item 1',
-                              callback: () {},
-                            ),
+                            return Menu(
+                              children: [
+                                MenuAction(
+                                  title: 'Menu Item 1',
+                                  callback: () async {
+
+                                    final prefs = await SharedPreferences.getInstance();
+                                    await prefs.setString('testKey', 'hello');
+                                    print("Prefs test value: ${prefs.getString('testKey')}");
+
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                          emojiList: const [
+                            {'emoji': '👍'},
+                            {'emoji': '❤️'},
+                            {'emoji': '🔥'},
+                            {'emoji': '✨'},
+                            // {'emoji': null},
                           ],
-                        );
-                      },
-                      emojiList: [
-                        {'emoji': '👍'},
-                        {'emoji': '👍'},
-                        {'emoji': '👍'},
-                        {'emoji': '👍'},
-                        {'emoji': null},
-                      ],
-                      emojiClick: (String) {},
-                      backmanage: (value) {
-                        isReturnAllowed = value;
-                        print("paissssaaa>>>> ${isReturnAllowed}");
-                      },
-                      isDarkMode: false,
+                          emojiClick: (String) {},
+                          backmanage: (value) {
+                            isReturnAllowed = value;
+                            print("paissssaaa>>>> ${isReturnAllowed}");
+                          },
+                          isDarkMode: false,
+                          child: const Item(
+                            child: Text('Base1 Context Menu' 'Base Context Menu' 'Base'),
+                          ),
+                        ),
+                      ),
                     )),
               );
             },

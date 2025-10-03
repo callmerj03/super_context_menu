@@ -1,4 +1,5 @@
 pluginManagement {
+
     def flutterSdkPath = {
         def properties = new Properties()
         file("local.properties").withInputStream { properties.load(it) }
@@ -13,6 +14,7 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        // Removed flutterPluginPortal() → deprecated / no longer needed
     }
 }
 
@@ -22,4 +24,4 @@ plugins {
     id "org.jetbrains.kotlin.android" version "2.1.10" apply false
 }
 
-include ":app"
+include ':app'
